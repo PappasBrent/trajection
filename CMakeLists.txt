@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.24...3.30)
 project(
   trajection
-  VERSION 0.0.1
+  VERSION 1.0
   DESCRIPTION "Ball trajectory game"
   LANGUAGES C)
 
