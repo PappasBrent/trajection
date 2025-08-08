@@ -20,9 +20,6 @@ Manipulate gravity across 5 levels of trajectory-bending action.
 
 ### Steps
 
-TODO: Make sure these steps work with different configurations and build
-systems.
-
 - Download this repository with `git clone`.
 
 - Navigate to the cloned directory and configure with:
