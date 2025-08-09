@@ -1,6 +1,3 @@
-add_library(globals globals.c)
-target_link_libraries(globals PRIVATE raylib)
-
 target_sources(${PROJECT_NAME} PRIVATE
     cannon.c
     direction.c
@@ -8,7 +5,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     level.c
     main.c
     turn_circle.c)
-target_link_libraries(${PROJECT_NAME} PRIVATE raylib globals)
+target_link_libraries(${PROJECT_NAME} PRIVATE raylib)
 
 target_sources(${PROJECT_NAME}-editor PRIVATE
     cannon.c
@@ -17,4 +14,4 @@ target_sources(${PROJECT_NAME}-editor PRIVATE
     level.c
     editor.c
     turn_circle.c)
-target_link_libraries(${PROJECT_NAME}-editor PRIVATE raylib globals)
+target_link_libraries(${PROJECT_NAME}-editor PRIVATE raylib)
