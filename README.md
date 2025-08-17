@@ -98,6 +98,11 @@ Editor:
 
 - `4`: If you are placing a cannon or turn circle, change its direction to down.
 
+- Right arrow: Edit the next level in the currently-open set of levels (each
+  level files contains a series of five levels).
+
+- Left arrow: Edit the previous level in the currently-open set of levels.
+
 ### Screenshots
 
 ![Level 3](screenshots/recording.gif "Recording")
