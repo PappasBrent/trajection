@@ -100,7 +100,7 @@ Editor:
 
 ### Links
 
-- itch.io Release: https://brent-pappas.itch.io/trajection
+- itch.io Release: <https://brent-pappas.itch.io/trajection>
 
 ### License
 
