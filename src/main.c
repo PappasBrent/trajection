@@ -9,7 +9,7 @@
 #include <stdlib.h>
 
 #ifdef PLATFORM_WEB
-#include "emscripten/emscripten.h"
+#include <emscripten/emscripten.h>
 #endif
 
 Levels levels;
