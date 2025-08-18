@@ -51,22 +51,23 @@ void draw(void) {
 
     switch (state) {
     case Title:
-        text_metrics = MeasureTextEx(font, "Trajection", Font_Size_Large, 2);
+        text_metrics =
+            MeasureTextEx(font, "Trajection", Font_Size_Large, FONT_SPACING);
         DrawTextEx(font, "Trajection",
                    (Vector2){
                        .x = (float)WIDTH / 2 - text_metrics.x / 2,
                        .y = CELL_SIZE * 4,
                    },
-                   Font_Size_Large, 2, BLACK);
+                   Font_Size_Large, FONT_SPACING, BLACK);
 
-        text_metrics =
-            MeasureTextEx(font, "Click to start", Font_Size_Medium, 2);
+        text_metrics = MeasureTextEx(font, "Click to start", Font_Size_Medium,
+                                     FONT_SPACING);
         DrawTextEx(font, "Click to start",
                    (Vector2){
                        .x = (float)WIDTH / 2 - text_metrics.x / 2,
                        .y = CELL_SIZE * 8,
                    },
-                   Font_Size_Medium, 2, BLACK);
+                   Font_Size_Medium, FONT_SPACING, BLACK);
         break;
     case In_Level:
         draw_level(*level, false);
@@ -76,7 +77,7 @@ void draw(void) {
                            .x = CELL_SIZE,
                            .y = HEIGHT - CELL_SIZE * 2,
                        },
-                       Font_Size_Medium, 2, BLACK);
+                       Font_Size_Medium, FONT_SPACING, BLACK);
         }
         DrawTextEx(
             font, TextFormat("Level %d/%d", (level - levels.data + 1), NLEVELS),
@@ -84,51 +85,52 @@ void draw(void) {
                 .x = (float)CELL_SIZE / 2,
                 .y = (float)CELL_SIZE / 2,
             },
-            Font_Size_Small, 2, BLACK);
+            Font_Size_Small, FONT_SPACING, BLACK);
         if (default_levels) {
             // Print tutorial text if we are in the default levels.
             // TODO(Brent): Add text placement to the level editor.
             if (levels.data == level) {
-                DrawTextEx(font, "Reach the finish line\n\n\nto beat the level",
+                DrawTextEx(font, "Reach the finish line\nto beat the level",
                            (Vector2){ .x = CELL_SIZE * 3, .y = CELL_SIZE * 4 },
-                           Font_Size_Medium, 2, BLACK);
+                           Font_Size_Medium, FONT_SPACING, BLACK);
             }
             if (levels.data + 1 == level) {
                 DrawTextEx(
                     font,
-                    "When the ball is\n\n\nin a circle,\n\n\nclick to change\n\n\nthe ball's direction",
+                    "When the ball is\nin a circle,\nclick to change\nthe ball's direction",
                     (Vector2){ .x = CELL_SIZE * 1, .y = CELL_SIZE * 8 },
-                    Font_Size_Medium, 2, BLACK);
+                    Font_Size_Medium, FONT_SPACING, BLACK);
             }
             if (levels.data + 3 == level) {
-                DrawTextEx(font, "Watch out\n\n\nfor walls",
+                DrawTextEx(font, "Watch out\nfor walls",
                            (Vector2){ .x = CELL_SIZE * 17,
                                       .y = CELL_SIZE * 12 },
-                           Font_Size_Medium, 2, BLACK);
+                           Font_Size_Medium, FONT_SPACING, BLACK);
             }
             if (levels.data + 4 == level) {
                 DrawTextEx(font, "Good luck!",
                            (Vector2){ .x = CELL_SIZE * 17, .y = CELL_SIZE * 2 },
-                           Font_Size_Medium, 2, BLACK);
+                           Font_Size_Medium, FONT_SPACING, BLACK);
             }
         }
         break;
     case Win:
-        text_metrics = MeasureTextEx(font, "You win!", Font_Size_Large, 2);
+        text_metrics =
+            MeasureTextEx(font, "You win!", Font_Size_Large, FONT_SPACING);
         DrawTextEx(font, "You win!",
                    (Vector2){
                        .x = (float)WIDTH / 2 - text_metrics.x / 2,
                        .y = CELL_SIZE * 8,
                    },
-                   Font_Size_Large, 2, BLACK);
-        text_metrics =
-            MeasureTextEx(font, "Click to close", Font_Size_Medium, 2);
-        DrawTextEx(font, "Click to close",
+                   Font_Size_Large, FONT_SPACING, BLACK);
+        text_metrics = MeasureTextEx(font, "Click to return to title",
+                                     Font_Size_Medium, FONT_SPACING);
+        DrawTextEx(font, "Click to return to title",
                    (Vector2){
                        .x = (float)WIDTH / 2 - text_metrics.x / 2,
                        .y = CELL_SIZE * 12,
                    },
-                   Font_Size_Medium, 2, BLACK);
+                   Font_Size_Medium, FONT_SPACING, BLACK);
         break;
     }
 
