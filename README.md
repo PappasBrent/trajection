@@ -37,13 +37,13 @@ cmake --build build
 - Play Trajection with:
 
 ```bash
-    ./build/trajection
+./build/trajection
 ```
 
 - Alternatively, open Trajection's level editor with:
 
 ```bash
-    ./build/Debug/trajection-editor levels.dat
+./build/Debug/trajection-editor levels.dat
 ```
 
 Trajection's level editor accepts a single command-line argument that is the
