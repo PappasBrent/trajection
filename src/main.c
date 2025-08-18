@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef PLATFORM_WEB
+#include "emscripten/emscripten.h"
+#endif
+
 Levels levels;
 
 Level *level = &levels.data[0];
@@ -233,6 +237,11 @@ void update(void) {
     }
 }
 
+void update_and_draw_frame(void) {
+    update();
+    draw();
+}
+
 int main(int argc, char **argv) {
     unsigned char *filedata = 0;
     char *filename = 0;
@@ -263,10 +272,14 @@ int main(int argc, char **argv) {
     init();
 
     draw();
+
+#ifdef PLATFORM_WEB
+    emscripten_set_main_loop(update_and_draw_frame, 0, 1);
+#else
     do {
-        update();
-        draw();
+        update_and_draw_frame();
     } while (!(WindowShouldClose() || should_quit));
+#endif
 
     quit();
 
