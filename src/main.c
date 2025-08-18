@@ -147,12 +147,13 @@ void update(void) {
 
     if (Title == state) {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            level = &levels.data[0];
             state = In_Level;
         }
         return;
     } else if (Win == state) {
         if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-            should_quit = true;
+            state = Title;
         }
         return;
     }
