@@ -57,6 +57,7 @@ if ("${PLATFORM}" STREQUAL "Web")
         -sWASM=1
         -sGL_ENABLE_GET_PROC_ADDRESS=1
         -sEXPORTED_RUNTIME_METHODS=HEAPF32,requestFullscreen
+        --shell-file ${CMAKE_SOURCE_DIR}/src/minshell.html
         --preload-file resources
     )
 endif()
