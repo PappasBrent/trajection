@@ -27,7 +27,6 @@ bool default_levels = false;
 
 void init(void) {
     Image finish_line_image = { 0 };
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(WIDTH, HEIGHT, "Trajection");
     HideCursor();
     SetTargetFPS(60);
