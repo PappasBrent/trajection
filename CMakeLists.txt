@@ -36,7 +36,7 @@ message("Platform: ${PLATFORM}")
 if ("${PLATFORM}" STREQUAL "Web")
     add_custom_command(
         TARGET ${PROJECT_NAME} PRE_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/resources
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/src/resources $<TARGET_FILE_DIR:${PROJECT_NAME}>/../resources
     )
     #DEPENDS ${PROJECT_NAME}
 else()
@@ -51,5 +51,12 @@ endif()
 if ("${PLATFORM}" STREQUAL "Web")
     # Tell Emscripten to build an example.html file.
     set_target_properties(${PROJECT_NAME} PROPERTIES SUFFIX ".html")
-    target_link_options(${PROJECT_NAME} PUBLIC -sUSE_GLFW=3 PUBLIC --preload-file resources)
+    target_link_options(${PROJECT_NAME} PUBLIC
+        -sUSE_GLFW=3
+        -sASSERTIONS=1
+        -sWASM=1
+        -sGL_ENABLE_GET_PROC_ADDRESS=1
+        -sEXPORTED_RUNTIME_METHODS=HEAPF32,requestFullscreen
+        --preload-file resources
+    )
 endif()
